@@ -1,21 +1,12 @@
-#include<iostream>
-#include<stdlib.h>
-#include<time.h>
-#include<Windows.h>
-#define MAXFILAS 17
-#define MAXCOL 25
-using namespace std;
+#include "DamasChinas.h"
 
 
 //estructura para establecer el nombre y el dado
-typedef struct {
-	char nombre[20];
-	char p;
-	int dado;
-}t_jugador;
+
+
 
 //funciona que genera el tablero
-void generar_mapa(char** Mmapa) {
+void DamasChinas::generar_mapa(char** Mmapa) {
 	char matriz[MAXFILAS][MAXCOL] = {
 									{' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','A',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
 									{' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','A',' ','A',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
@@ -44,7 +35,7 @@ void generar_mapa(char** Mmapa) {
 	}
 }
 
-void dibujar_mapa(char** Mmapa) {
+void DamasChinas::dibujar_mapa(char** Mmapa) {
 	//PARA LOS COLORES
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_SCREEN_BUFFER_INFO cbi;
@@ -97,7 +88,7 @@ void dibujar_mapa(char** Mmapa) {
 }
 
 
-void mover_ficha(int coordx, int coordy, int destx, int desty, int direccion, char** Mmapa) {
+void DamasChinas::mover_ficha(int coordx, int coordy, int destx, int desty, int direccion, char** Mmapa) {
 	char aux;
 	switch (direccion) {
 	case 1:
@@ -132,7 +123,7 @@ void mover_ficha(int coordx, int coordy, int destx, int desty, int direccion, ch
 
 
 //funcion para generar el menu
-int menu() {
+int DamasChinas::menu() {
 	int opcion;
 	cout << "      .:MENU:." << endl;
 	cout << "--------------------" << endl;
@@ -151,7 +142,7 @@ int menu() {
 	return opcion;
 }
 
-bool victoria(char** Mmapa) {
+bool DamasChinas::victoria(char** Mmapa) {
 	if (Mmapa[0][12] == Mmapa[1][11] == Mmapa[1][13] == Mmapa[2][10] == Mmapa[2][12] ==
 		Mmapa[2][14] == Mmapa[3][9] == Mmapa[3][11] == Mmapa[3][13] == Mmapa[3][15] == 'D') {
 		return false;
@@ -164,7 +155,7 @@ bool victoria(char** Mmapa) {
 	else return true;
 }
 
-void pedir_datos(t_jugador* Vjugadores) {
+void DamasChinas::pedir_datos(t_jugador* Vjugadores) {
 	int i;
 	cout << "DATOS DE LOS JUGADORES" << endl;
 	cout << "-----------------------\n\n";
@@ -176,7 +167,7 @@ void pedir_datos(t_jugador* Vjugadores) {
 	cout << endl;
 }
 
-void bienvenida() {
+void DamasChinas::bienvenida() {
 	char b = 219;
 	cout << "\n            " << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b;
 	cout << "\n            " << b << "BIENVENIDOS AL JUEGO DE DAMAS CHINAS" << b << endl;
@@ -202,7 +193,7 @@ void bienvenida() {
 	cout << "                            ******          " << endl;
 }
 
-void generar_cartel(int** Mcartel) {
+void DamasChinas::generar_cartel(int** Mcartel) {
 	int cartel[23][15] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 							{0,0,1,0,1,0,1,1,1,0,1,0,1,0,0},
 							{0,0,0,1,0,0,1,0,1,0,1,0,1,0,0},
@@ -236,7 +227,7 @@ void generar_cartel(int** Mcartel) {
 	}
 }
 
-void dibujar_cartel(int** Mcartel) {
+void DamasChinas::dibujar_cartel(int** Mcartel) {
 	//PARA LOS COLORES
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -272,7 +263,7 @@ void dibujar_cartel(int** Mcartel) {
 
 
 
-void instrucciones() {
+void DamasChinas::instrucciones() {
 	cout << ".:INSTRUCCIONES:." << endl;
 	cout << "------------------" << endl;
 	cout << "\nLa finalidad del juego es trasladar todas las fichas desde una punta de la estrella\n";
@@ -295,7 +286,7 @@ void instrucciones() {
 	cout << "\nEl juego termina cuando uno de los jugadores logra colocar sus 6 fichas en el triangulo opuesto al suyo.\n";
 }
 
-void creditos() {
+void DamasChinas::creditos() {
 	cout << ".:CREDITOS:." << endl;
 	cout << "------------" << endl << endl;
 	cout << "Trabajo Final de Programacion I elaborado por:" << endl;
@@ -304,7 +295,7 @@ void creditos() {
 	cout << "- kurumii002" << endl << endl;
 }
 
-int main() {
+int DamasChinas::jugar() {
 	char** Mmapa, matriz;
 	int** Mcartel;
 	int opcion, volver;

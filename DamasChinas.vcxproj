@@ -114,7 +114,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -140,6 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DamasChinas.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="t_jugador.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Control.h" />
+    <ClInclude Include="DamasChinas.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="t_jugador.h" />
+    <ClInclude Include="VectorOpc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
