@@ -36,7 +36,7 @@ public:
 
 	static void creditos();
 
-	static int jugar();
+	static void jugar();
 
 
 

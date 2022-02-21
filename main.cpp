@@ -58,6 +58,7 @@ void Jugar() {
 	system("cls");
 	system("pause");
 	DamasChinas::jugar();
+    principalMenu();
 }
 
 void marquesina(std::string text, size_t limit) {

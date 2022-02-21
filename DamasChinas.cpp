@@ -1,5 +1,5 @@
 #include "DamasChinas.h"
-
+using std::cout;
 
 //estructura para establecer el nombre y el dado
 
@@ -87,7 +87,6 @@ void DamasChinas::dibujar_mapa(char** Mmapa) {
 	cout << endl;
 }
 
-
 void DamasChinas::mover_ficha(int coordx, int coordy, int destx, int desty, int direccion, char** Mmapa) {
 	char aux;
 	switch (direccion) {
@@ -121,17 +120,17 @@ void DamasChinas::mover_ficha(int coordx, int coordy, int destx, int desty, int 
 	Mmapa[coordx][coordy] = aux;
 }
 
-
 //funcion para generar el menu
 int DamasChinas::menu() {
+
 	int opcion;
 	cout << "      .:MENU:." << endl;
 	cout << "--------------------" << endl;
-	cout << "1) Bienvenida" << endl;
-	cout << "2) Instrucciones" << endl;
-	cout << "3) Cartel winner" << endl;
-	cout << "4) Creditos" << endl;
-	cout << "5) Empezar juego" << endl << endl;
+	cout << "1) Instrucciones" << endl;
+	cout << "2) Empezar juego" << endl << endl;
+	cout << "3) Creditos" << endl;
+	cout << "4) Mis Partidas" << endl;
+	cout << "5) Salir" << endl;
 
 	do { //bucle para controlar el ingreso de opcione
 		cout << ">_Ingrese su opcion: ";
@@ -140,6 +139,7 @@ int DamasChinas::menu() {
 
 	cout << endl;
 	return opcion;
+
 }
 
 bool DamasChinas::victoria(char** Mmapa) {
@@ -165,32 +165,6 @@ void DamasChinas::pedir_datos(t_jugador* Vjugadores) {
 		cin >> Vjugadores[i].nombre;
 	}
 	cout << endl;
-}
-
-void DamasChinas::bienvenida() {
-	char b = 219;
-	cout << "\n            " << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b;
-	cout << "\n            " << b << "BIENVENIDOS AL JUEGO DE DAMAS CHINAS" << b << endl;
-	cout << "            " << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << b << endl << endl << endl;
-	cout << "                             *                         " << endl;
-	cout << "                           +**                         " << endl;
-	cout << "                          :***                          " << endl;
-	cout << "                          *****                         " << endl;
-	cout << "                *         ******                        " << endl;
-	cout << "               *          ********            *         " << endl;
-	cout << "              :*           ********           **         " << endl;
-	cout << "              **:           ********          **         " << endl;
-	cout << "              ***            *******         +**         " << endl;
-	cout << "              ***              *****         ***         " << endl;
-	cout << "              ****              ****        ****         " << endl;
-	cout << "              -****             :**        *****         " << endl;
-	cout << "               ******            *       -*****          " << endl;
-	cout << "                ******+                +******           " << endl;
-	cout << "                 *********=        .*********             " << endl;
-	cout << "                  *************************             " << endl;
-	cout << "                    **********************               " << endl;
-	cout << "                       ****************                  " << endl;
-	cout << "                            ******          " << endl;
 }
 
 void DamasChinas::generar_cartel(int** Mcartel) {
@@ -261,8 +235,6 @@ void DamasChinas::dibujar_cartel(int** Mcartel) {
 	cout << endl;
 }
 
-
-
 void DamasChinas::instrucciones() {
 	cout << ".:INSTRUCCIONES:." << endl;
 	cout << "------------------" << endl;
@@ -289,13 +261,13 @@ void DamasChinas::instrucciones() {
 void DamasChinas::creditos() {
 	cout << ".:CREDITOS:." << endl;
 	cout << "------------" << endl << endl;
-	cout << "Trabajo Final de Programacion I elaborado por:" << endl;
-	cout << "- Alumno 1" << endl;
-	cout << "- Alumno 2" << endl;
-	cout << "- kurumii002" << endl << endl;
+	cout << "Elaborado por:" << endl;
+	cout << "- " << endl;
+	cout << "- " << endl;
+	cout << "- " << endl << endl;
 }
 
-int DamasChinas::jugar() {
+void DamasChinas::jugar() {
 	char** Mmapa, matriz;
 	int** Mcartel;
 	int opcion, volver;
@@ -317,24 +289,12 @@ int DamasChinas::jugar() {
 		Mcartel[i] = new int[15];
 	}
 
-	//buvle para controlar las opciones del menu
 	do {
 		opcion = menu();
 		switch (opcion) {
 		case 1: {
 			do {
-				system("cls");
-				bienvenida();
-				cout << endl << ">_Presione 0 para volver al menu: ";
-				cin >> volver;
-			} while (volver != 0);
-			system("cls");
-			//system("pause>NULL");
-			//system("cls");
-			break;
-		}
-		case 2: {
-			do {
+
 				system("cls");
 				instrucciones();
 				cout << endl << ">_Presione 0 para volver al menu: ";
@@ -347,18 +307,6 @@ int DamasChinas::jugar() {
 		case 3: {
 			do {
 				system("cls");
-				generar_cartel(Mcartel);
-				dibujar_cartel(Mcartel);
-				cout << endl << ">_Presione 0 para volver al menu: ";
-				cin >> volver;
-			} while (volver != 0);
-			system("cls");
-			break;
-		}
-
-		case 4: {
-			do {
-				system("cls");
 				creditos();
 				cout << endl << ">_Presione 0 para volver al menu: ";
 				cin >> volver;
@@ -367,127 +315,125 @@ int DamasChinas::jugar() {
 			break;
 		}
 
-		}
-	} while (opcion != 5);
-
-	if (opcion == 5) {
-		system("cls");
-		pedir_datos(Vjugadores);
-		do {
-			generar_mapa(Mmapa);
-			dibujar_mapa(Mmapa);
-			cout << ">_Escoja una region (A / B / C / D / E / F): ";
-			cin >> j1ficha; j1ficha = toupper(j1ficha);
-
-		} while ((j1ficha != 'A') && (j1ficha != 'B') && (j1ficha != 'C') && (j1ficha != 'D') && (j1ficha != 'E') && (j1ficha != 'F'));
-
-		//setea la region del P1 Y P2
-		switch (j1ficha) {
-		case 'A':
-			j2ficha = 'D';
-			break;
-		case 'B':
-			j2ficha = 'E';
-			break;
-		case 'C':
-			j2ficha = 'F';
-			break;
-		case 'D':
-			j2ficha = 'A';
-			break;
-		case 'E':
-			j2ficha = 'B';
-			break;
-		case 'F':
-			j2ficha = 'C';
-			break;
-		}
-
-		cout << "\t> " << Vjugadores[1].nombre << " -> " << j1ficha << endl;
-		cout << "\t> " << Vjugadores[2].nombre << " -> " << j2ficha << endl << endl;
-		cout << ">>>> RESULTADO DE LOS DADOS: \n";
-
-		do {
-			//obtiene el valor
-			for (i = 1; i <= 2; i++) {
-				Vjugadores[i].dado = rand() % 6 + 1;
-			}
-
-		} while (Vjugadores[1].dado == Vjugadores[2].dado);
-
-
-		for (i = 1; i <= 2; i++) {
-			cout << "\t> " << Vjugadores[i].nombre << ": " << Vjugadores[i].dado << endl;
-		}
-
-		cout << endl;
-
-		if (Vjugadores[2].dado > Vjugadores[1].dado) {
-			cout << "> Comienza " << Vjugadores[2].nombre << endl;
-			auxficha = j1ficha;
-			j1ficha = j2ficha;
-			j2ficha = auxficha;
-		}
-		else {
-			cout << "> Comienza " << Vjugadores[1].nombre << endl;
-		}
-
-		while (victoria(Mmapa)) {
-			for (turno = 1; turno > 0; turno++) {
-
-				if ((turno % 2) == 1) {
-					do {
-						cout << ">_Ingrese la fila de la ficha a mover: "; cin >> coordx;
-						cout << ">_Ingrese la columna de la ficha a mover: "; cin >> coordy;
-
-					} while ((Mmapa[coordx][coordy]) != j1ficha);
-					do {
-						cout << "\n>>> Mover Ficha" << endl;
-						cout << "\t\t\t\t" << "   [1]  [2]" << endl;
-						cout << "\t\t\t\t" << "[4]        [3]" << endl;
-						cout << "\t\t\t\t" << "   [6]  [5]" << endl << endl;
-						cout << "(1: up-left, 2: up-right, 3: right, 4: left, 5: down-right, 6: down-left): ";
-						cin >> direccion;
-					} while ((direccion < 1) || (direccion > 6));
-					mover_ficha(coordx, coordy, destx, desty, direccion, Mmapa);
-
-
-				}
-				if ((turno % 2) == 0) {
-					do {
-						cout << ">_Ingrese la fila de la ficha a mover: "; cin >> coordx;
-						cout << ">_Ingrese la columna de la ficha a mover: "; cin >> coordy;
-
-					} while ((Mmapa[coordx][coordy]) != j2ficha);
-					do {
-						cout << "\n>>> Mover Ficha" << endl;
-						cout << "\t\t\t\t" << "   [1]  [2]" << endl;
-						cout << "\t\t\t\t" << "[4]        [3]" << endl;
-						cout << "\t\t\t\t" << "   [6]  [5]" << endl << endl;
-						cout << "(1: up-left, 2: up-right, 3: right, 4: left, 5: down-right, 6: down-left): ";
-						cin >> direccion;
-					} while ((direccion < 1) || (direccion > 6));
-					mover_ficha(coordx, coordy, destx, desty, direccion, Mmapa);
-
-
-				}
-				system("cls");
-				dibujar_mapa(Mmapa);
-
-			}
+		case 4: {
+			cout << "Agrega el backup kpo" << endl;
+			system("pause");
 
 		}
 
-		//generar_mapa(Mmapa);
-		//dibujar_mapa(Mmapa);
+		case 5: {
+			return;
+		}
 
+		}
+	} while (opcion != 2); 
+
+	system("cls");
+	pedir_datos(Vjugadores);
+	do {
+		generar_mapa(Mmapa);
+		dibujar_mapa(Mmapa);
+		cout << ">_Escoja una region (A / B / C / D / E / F): ";
+		cin >> j1ficha; j1ficha = toupper(j1ficha);
+
+	} while ((j1ficha != 'A') && (j1ficha != 'B') && (j1ficha != 'C') && (j1ficha != 'D') && (j1ficha != 'E') && (j1ficha != 'F'));
+
+	//setea la region del P1 Y P2
+	switch (j1ficha) {
+	case 'A':
+		j2ficha = 'D';
+		break;
+	case 'B':
+		j2ficha = 'E';
+		break;
+	case 'C':
+		j2ficha = 'F';
+		break;
+	case 'D':
+		j2ficha = 'A';
+		break;
+	case 'E':
+		j2ficha = 'B';
+		break;
+	case 'F':
+		j2ficha = 'C';
+		break;
 	}
 
+	cout << "\t> " << Vjugadores[1].nombre << " -> " << j1ficha << endl;
+	cout << "\t> " << Vjugadores[2].nombre << " -> " << j2ficha << endl << endl;
+	cout << ">>>> RESULTADO DE LOS DADOS: \n";
+
+	do {
+		//obtiene el valor
+		for (i = 1; i <= 2; i++) {
+			Vjugadores[i].dado = rand() % 6 + 1;
+		}
+
+	} while (Vjugadores[1].dado == Vjugadores[2].dado);
 
 
+	for (i = 1; i <= 2; i++) {
+		cout << "\t> " << Vjugadores[i].nombre << ": " << Vjugadores[i].dado << endl;
+	}
+
+	cout << endl;
+
+	if (Vjugadores[2].dado > Vjugadores[1].dado) {
+		cout << "> Comienza " << Vjugadores[2].nombre << endl;
+		auxficha = j1ficha;
+		j1ficha = j2ficha;
+		j2ficha = auxficha;
+	}
+	else {
+		cout << "> Comienza " << Vjugadores[1].nombre << endl;
+	}
+
+	while (victoria(Mmapa)) {
+		for (turno = 1; turno > 0; turno++) {
+
+			if ((turno % 2) == 1) {
+				do {
+					cout << ">_Ingrese la fila de la ficha a mover: "; cin >> coordx;
+					cout << ">_Ingrese la columna de la ficha a mover: "; cin >> coordy;
+
+				} while ((Mmapa[coordx][coordy]) != j1ficha);
+				do {
+					cout << "\n>>> Mover Ficha" << endl;
+					cout << "\t\t\t\t" << "   [1]  [2]" << endl;
+					cout << "\t\t\t\t" << "[4]        [3]" << endl;
+					cout << "\t\t\t\t" << "   [6]  [5]" << endl << endl;
+					cout << "(1: up-left, 2: up-right, 3: right, 4: left, 5: down-right, 6: down-left): ";
+					cin >> direccion;
+				} while ((direccion < 1) || (direccion > 6));
+				mover_ficha(coordx, coordy, destx, desty, direccion, Mmapa);
 
 
-	//delete
+			}
+			if ((turno % 2) == 0) {
+				do {
+					cout << ">_Ingrese la fila de la ficha a mover: "; cin >> coordx;
+					cout << ">_Ingrese la columna de la ficha a mover: "; cin >> coordy;
+
+				} while ((Mmapa[coordx][coordy]) != j2ficha);
+				do {
+					cout << "\n>>> Mover Ficha" << endl;
+					cout << "\t\t\t\t" << "   [1]  [2]" << endl;
+					cout << "\t\t\t\t" << "[4]        [3]" << endl;
+					cout << "\t\t\t\t" << "   [6]  [5]" << endl << endl;
+					cout << "(1: up-left, 2: up-right, 3: right, 4: left, 5: down-right, 6: down-left): ";
+					cin >> direccion;
+				} while ((direccion < 1) || (direccion > 6));
+				mover_ficha(coordx, coordy, destx, desty, direccion, Mmapa);
+
+
+			}
+			system("cls");
+			dibujar_mapa(Mmapa);
+
+		}
+	}
+
 	for (i = 0; i < MAXFILAS; i++) {
 		delete[]Mmapa[i];
 	}
@@ -495,6 +441,5 @@ int DamasChinas::jugar() {
 
 	system("pause");
 
-	return 0;
 }
 
