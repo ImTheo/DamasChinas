@@ -140,13 +140,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DamasChinas.cpp" />
+    <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Md5.cpp" />
     <ClCompile Include="t_jugador.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Control.h" />
     <ClInclude Include="DamasChinas.h" />
+    <ClInclude Include="Include.h" />
+    <ClInclude Include="Login.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="Md5.h" />
     <ClInclude Include="t_jugador.h" />
     <ClInclude Include="VectorOpc.h" />
   </ItemGroup>

@@ -9,10 +9,12 @@
 #include <iomanip>
 #include <sstream>
 #include "DamasChinas.h"
-
+#include "Login.h"
 
 void exit_program();
-void primerMenu();
-void placeholder();
+void principalMenu();
+void Jugar();
 void marquesina(std::string text, size_t limit);
 void AjustarVentana();
+void logearse();
+void registrarse();

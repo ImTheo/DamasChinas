@@ -1,19 +1,60 @@
 #include "main.h"
 
-void primerMenu()
+void principalMenu()
 {
-	std::vector<VectorMenu> opciones{{1, "Jugar", placeholder},{2, "SALIR", exit_program}};
+	std::vector<VectorMenu> opciones{{1, "Jugar", Jugar},{2, "SALIR", exit_program}};
 	Control objetoMenu{ opciones };
 	objetoMenu.controlMenu();
 
 }
 
+void loginRegisterApp()
+{
+    std::vector<VectorMenu> menu_item
+    {
+        {1, "Login", logearse},
+        {2, "Register", registrarse},
+        {3, "SALIR", exit_program}
+    };
+
+    Control menu{ menu_item };
+    menu.controlMenu();
+}
+
+void logearse()
+{
+    system("pause");
+    system("cls");
+    Login log;
+    if (log.login() == 1) {
+        principalMenu();
+    }
+    else {
+        cout << "Usuario Incorrecto" << endl;
+        Sleep(600);
+    }
+    loginRegisterApp();
+}
+
+void registrarse()
+{
+    system("pause");
+    system("cls");
+    Login log;
+    if (log.sigin() == 1) {
+    }
+    else {
+        cout << "Usuario Incorrecto" << endl;
+        Sleep(600);
+    }
+    loginRegisterApp();
+}
 void exit_program()
 {
 	exit(0);
 }
 
-void placeholder() {
+void Jugar() {
 	system("cls");
 	system("pause");
 	DamasChinas::jugar();
@@ -35,7 +76,8 @@ int main()
 	//std::string str = " UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE ";
 	//std::thread hilo(marquesina, str, str.size());
 	AjustarVentana();
-	primerMenu();
+    loginRegisterApp();
+	
 }
 
 void AjustarVentana()
