@@ -1,6 +1,5 @@
 #pragma once
 #include <Windows.h>
-#include<iostream>
 #include <thread>
 
 #include "Control.h"
@@ -10,11 +9,14 @@
 #include <sstream>
 #include "DamasChinas.h"
 #include "Login.h"
+#include "json.hpp"
+#include <fstream>
 
 void exit_program();
+void cargarJuego();
 void principalMenu();
-void Jugar();
+void jugar();
 void marquesina(std::string text, size_t limit);
-void AjustarVentana();
+void ajustarVentana();
 void logearse();
 void registrarse();

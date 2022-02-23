@@ -1,0 +1,13 @@
+{
+    "coordx": 4,
+    "coordy": 18,
+    "destx": 0,
+    "desty": 0,
+    "direccion": 6,
+    "j1ficha": 70,
+    "j2ficha": 67,
+    "jugador1": "theo",
+    "jugador2": "pity",
+    "primerJugador": true,
+    "turno": 1
+}

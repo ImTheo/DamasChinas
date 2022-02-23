@@ -43,7 +43,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -149,6 +149,7 @@
     <ClInclude Include="Control.h" />
     <ClInclude Include="DamasChinas.h" />
     <ClInclude Include="Include.h" />
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Md5.h" />
