@@ -134,7 +134,6 @@ int DamasChinas::menu() {
 	cout << "1) Instrucciones" << endl;
 	cout << "2) Empezar juego" << endl << endl;
 	cout << "3) Creditos" << endl;
-	cout << "4) Mis Partidas" << endl;
 	cout << "5) Salir" << endl;
 
 	do { //bucle para controlar el ingreso de opcione
@@ -473,9 +472,10 @@ void DamasChinas::jugar() {
 void DamasChinas::cargarPartida(char** Mmapa, int& turno, int& coordx, int& coordy, char j1ficha, int& direccion, int destx, int desty, char j2ficha,bool primerJugador,string jugador1,string jugador2)
 {
 	int guardar;
+	turno++;
 	while (victoria(Mmapa)) {
 
-		for (turno = 1; turno > 0; turno++) {
+		for (turno; turno > 0; turno++) {
 
 			if (primerJugador) {
 				cout << "> Turno de  " << jugador1 << endl;

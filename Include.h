@@ -13,9 +13,8 @@
 #include <map>
 #include <sstream>
 #include<direct.h>
-// My headers
-#include "MD5.h"
-#include "Login.h"
+#include "EncriptacionMd5.h"
+#include "UserCredenciales.h"
 
 
 

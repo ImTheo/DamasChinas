@@ -124,7 +124,7 @@ void logearse()
 {
     system("pause");
     system("cls");
-    Login log;
+    UserCredenciales log;
     if (log.login() == 1) {
         principalMenu();
     }
@@ -139,7 +139,7 @@ void registrarse()
 {
     system("pause");
     system("cls");
-    Login log;
+    UserCredenciales log;
     if (log.logearse() == 1) {
     }
     else {

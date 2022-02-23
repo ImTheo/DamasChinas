@@ -24,10 +24,10 @@
     <ClCompile Include="t_jugador.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Login.cpp">
+    <ClCompile Include="UserCredenciales.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Md5.cpp">
+    <ClCompile Include="EncriptacionMd5.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,10 +50,10 @@
     <ClInclude Include="Include.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Login.h">
+    <ClInclude Include="UserCredenciales.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Md5.h">
+    <ClInclude Include="EncriptacionMd5.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="json.hpp">

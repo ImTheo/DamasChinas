@@ -5,7 +5,7 @@
 
 typedef std::map<std::string, std::string> Map;
 
-class Login
+class UserCredenciales
 {
 public:
 	int login();

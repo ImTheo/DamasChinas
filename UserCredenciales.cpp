@@ -1,6 +1,6 @@
 #include "Include.h"
 
-Map Login::abrirFile()
+Map UserCredenciales::abrirFile()
 { 
 	Map a;
 	std::string data = "";
@@ -24,7 +24,7 @@ Map Login::abrirFile()
 	
 	return  a;
 }
-void Login::generar_usuario(std::string user, std::string pass)
+void UserCredenciales::generar_usuario(std::string user, std::string pass)
 {
 	std::ofstream users;
 	_mkdir("C:\\DamasChinas\\");
@@ -33,7 +33,7 @@ void Login::generar_usuario(std::string user, std::string pass)
 	users << user << ";"<<pass<<"\n";
 
 }
-bool Login::comprobar(std::string user,std::string pass) 
+bool UserCredenciales::comprobar(std::string user,std::string pass) 
 { 
 	Map m = abrirFile();
 	MD5 crypto(pass);
@@ -42,7 +42,7 @@ bool Login::comprobar(std::string user,std::string pass)
 }
 
 
-int Login::login()
+int UserCredenciales::login()
 {
 	system("cls");
 	char a = 32;
@@ -62,7 +62,7 @@ int Login::login()
 
 }
 
-int Login::logearse()
+int UserCredenciales::logearse()
 {
 	system("cls");
 
@@ -84,7 +84,7 @@ int Login::logearse()
 	return encriptar(pass, user);
 }
 
-int Login::encriptar(std::string& pass, std::string& user)
+int UserCredenciales::encriptar(std::string& pass, std::string& user)
 {
 	MD5 crypto(pass);
 
