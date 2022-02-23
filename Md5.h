@@ -15,15 +15,65 @@ using std::ifstream;
 /* MD5 declaration. */
 class MD5 {
 public:
+/**
+ * @brief Construct a new MD5 object
+ * 
+ */
 	MD5();
+	/**
+	 * @brief Construct a new MD5 object
+	 * 
+	 * @param input 
+	 * @param length 
+	 */
 	MD5(const void* input, size_t length);
+	/**
+	 * @brief Construct a new MD5 object
+	 * 
+	 * @param str 
+	 */
 	MD5(const string& str);
+	/**
+	 * @brief Construct a new MD5 object
+	 * 
+	 * @param in 
+	 */
 	MD5(ifstream& in);
+	/**
+	 * @brief 
+	 * 
+	 * @param input 
+	 * @param length 
+	 */
 	void update(const void* input, size_t length);
+	/**
+	 * @brief 
+	 * 
+	 * @param str 
+	 */
 	void update(const string& str);
+	/**
+	 * @brief 
+	 * 
+	 * @param in 
+	 */
 	void update(ifstream& in);
+	/**
+	 * @brief 
+	 * 
+	 * @return const byte* 
+	 */
 	const byte* digest();
+	/**
+	 * @brief 
+	 * 
+	 * @return string 
+	 */
 	string toString();
+/**
+ * @brief 
+ * 
+ */
 	void reset();
 
 	inline uint4 rotate_left(uint4 x, int n);

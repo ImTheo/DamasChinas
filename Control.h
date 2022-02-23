@@ -16,15 +16,50 @@ class Control
 {
 public:
 
+
+/**
+ * @brief Construct a new Control object
+    
+ * 
+ */
     Control() = default; Control(std::vector<VectorMenu>);
+    /**
+     * @brief 
+     * 
+     */
     void controlMenu();
+    /**
+     * @brief 
+     * 
+     * @param i 
+     * @param retflag 
+     */
     void comprobarUpDown(size_t& i, bool& retflag);
+    /**
+     * @brief 
+     * 
+     */
     void mostrar(size_t);
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
     bool comprobarMouse(size_t*);
+    /**
+     * @brief 
+     * 
+     * @param vkey 
+     * @return true 
+     * @return false 
+     */
     bool comprobarTecla(int vkey);
 
 private:
+
     std::vector<VectorMenu> opciones_Menu_;
+
     HANDLE console_; HWND console_wnd = GetConsoleWindow();POINT cursor_pos;
     std::vector<int> listaPosiciones;
 };

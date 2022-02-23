@@ -1,6 +1,6 @@
 #include "Include.h"
 
-Map Login::read_file()
+Map Login::abrirFile()
 { 
 	Map a;
 	std::string data = "";
@@ -24,7 +24,7 @@ Map Login::read_file()
 	
 	return  a;
 }
-void Login::write_user(std::string user, std::string pass)
+void Login::generar_usuario(std::string user, std::string pass)
 {
 	std::ofstream users;
 	_mkdir("C:\\DamasChinas\\");
@@ -33,9 +33,9 @@ void Login::write_user(std::string user, std::string pass)
 	users << user << ";"<<pass<<"\n";
 
 }
-bool Login::check_user(std::string user,std::string pass) 
+bool Login::comprobar(std::string user,std::string pass) 
 { 
-	Map m = read_file();
+	Map m = abrirFile();
 	MD5 crypto(pass);
 	auto r = m.find(user);
 	return (r != m.end() && r->second == crypto.toString()) ? true : false;
@@ -46,25 +46,23 @@ int Login::login()
 {
 	system("cls");
 	char a = 32;
-	std::string user;
-	std::string pass;
-
-	std::cout << "Usuario: ";
+	std::string user;std::string pass;
+	std::cout << "User: ";
 	std::cin >> user;
-	std::cout << "Contrase" << (char)164 << "a: ";
+	std::cout << "password: ";
 	while (a != 13) {
 		if (a < 123 && a > 96) {
 			pass.push_back(a);
-			std::cout << "*";
+			std::cout << "#";
 		}
 		a = _getch();
 	}
 
-	return (check_user(user, pass)) ? 1 : 0;
+	return (comprobar(user, pass)) ? 1 : 0;
 
 }
 
-int Login::sigin()
+int Login::logearse()
 {
 	system("cls");
 
@@ -72,9 +70,9 @@ int Login::sigin()
 	std::string user;
 	std::string pass;
 
-	std::cout << "Usuario: ";
+	std::cout << "User : ";
 	std::cin >> user;
-	std::cout << "Contrase" << (char)164 << "a: ";
+	std::cout << "password: ";
 	while (a != 13) {
 		if (a < 123 && a > 96) {
 			pass.push_back(a);
@@ -83,11 +81,16 @@ int Login::sigin()
 		a = _getch();
 	}
 
+	return encriptar(pass, user);
+}
+
+int Login::encriptar(std::string& pass, std::string& user)
+{
 	MD5 crypto(pass);
 
-	if (!check_user(user, pass)) 
+	if (!comprobar(user, pass))
 	{
-		write_user(user, crypto.toString());
+		generar_usuario(user, crypto.toString());
 		return 1;
 	}
 

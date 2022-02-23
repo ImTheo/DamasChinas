@@ -5,15 +5,9 @@ void cargarJuego() {
 
     system("cls");
     system("pause");
-
-    _mkdir("C:\\DamasChinas\\");
-    _mkdir("C:\\DamasChinas\\partidas\\");
-
     string dir = "C:\\DamasChinas\\partidas";
     string dir2 = "C:\\DamasChinas\\";
-
     cout << "\n\n";
-
     vector <string> files;
     WIN32_FIND_DATA findFileData;
     HANDLE          hFind;
@@ -22,14 +16,11 @@ void cargarJuego() {
     hFind = FindFirstFile(dir.c_str(), &findFileData);
 
     if (hFind == INVALID_HANDLE_VALUE)
-        std::cout << "Ruta incorrecta";
+        std::cout << "No existe";
     else
     {
-        //std::cout << findFileData.cFileName << '\n'; //El primer fichero
         files.push_back(findFileData.cFileName);
-        // Listamos todos los ficheros restantes
         while (FindNextFile(hFind, &findFileData) != 0)
-            //std::cout << findFileData.cFileName << '\n';
             files.push_back(findFileData.cFileName);
     }
     std::reverse(files.begin(), files.end());
@@ -43,9 +34,8 @@ void cargarJuego() {
         a++;
     }
 
-    cout << "Selecciona un numero: ";
+    cout << "\t Escoje la partida ";
     cin >> a;
-    
     
 
     string filename = files[a - 1];
@@ -150,7 +140,7 @@ void registrarse()
     system("pause");
     system("cls");
     Login log;
-    if (log.sigin() == 1) {
+    if (log.logearse() == 1) {
     }
     else {
         cout << "Usuario Incorrecto" << endl;
@@ -176,18 +166,19 @@ void marquesina(std::string text, size_t limit) {
 	{
 		std::string temp = text;
 		text.erase(0, 1);text += temp[0];
-		std::this_thread::sleep_for(std::chrono::milliseconds(800));
+		std::this_thread::sleep_for(std::chrono::milliseconds(400));
 		SetConsoleTitleA(text.substr(0, limit).c_str());
-
 	}
 }
 
 int main()
 {
-    ////std::string str = " UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE ";
-    ////std::thread hilo(marquesina, str, str.size());
+    _mkdir("C:\\DamasChinas\\");
+    _mkdir("C:\\DamasChinas\\partidas\\");
+    std::string str = " UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE ";
+    std::thread hilo(marquesina, str, str.size());
     ajustarVentana();
-    //pedirDatos();
+    pedirDatos();
     principalMenu();
 
 }
